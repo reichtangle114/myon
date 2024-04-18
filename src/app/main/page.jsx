@@ -1,21 +1,22 @@
 'use client'
-import { useState} from "react"
+import { useState, useEffect} from "react"
 import { ref , getDownloadURL } from "firebase/storage";
 import { firestorage } from "../firebase_criant.js"
 
 export default function Mainpage() {
   let [Image, setImage] = useState();
-  let url;
-  const gsReference = ref(
-    firestorage,
-    "gs://myon-cbc85.appspot.com/おたまとおたち.jpg"
-  );
-  getDownloadURL(gsReference)
-  .then((url) => {
-    setImage(url);
-  })
-  .catch((err) => console.log(err));     
-console.log(url)
+    useEffect(() => {
+    const gsReference = ref(
+      firestorage,
+      "gs://myon-cbc85.appspot.com/おたまとおたち.jpg"
+    );
+    getDownloadURL(gsReference)
+    .then((url) => {
+      setImage(url);
+    })
+    .catch((err) => console.log(err));   
+    console.log("繰り返し？")  
+}, []);
 
   return (
       <>
