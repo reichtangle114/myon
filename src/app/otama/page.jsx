@@ -1,19 +1,22 @@
 'use client'
-import { useState} from "react"
+import { useState, useEffect} from "react"
 import { ref , getDownloadURL } from "firebase/storage";
 import { firestorage } from "../firebase_criant.js"
 
 export default function Otama() {
     let [Image, setImage] = useState();
-    const gsReference = ref(
-      firestorage,
-      "gs://myon-cbc85.appspot.com/むれる.jpg"
+    useEffect(() => {
+        const gsReference = ref(
+        firestorage,
+        "gs://myon-cbc85.appspot.com/むれる.jpg"
+        );
+        getDownloadURL(gsReference)
+        .then((url) => {
+        setImage(url);
+        })
+        .catch((err) => console.log(err));   
+    }, []
     );
-    getDownloadURL(gsReference)
-    .then((url) => {
-      setImage(url);
-    })
-    .catch((err) => console.log(err));   
 
     function over(){
         const gsReference = ref(
@@ -31,7 +34,7 @@ export default function Otama() {
       function leave(){
         const gsReference = ref(
             firestorage,
-            "gs://myon-cbc85.appspot.com/おたまとおたち.jpg"
+            "gs://myon-cbc85.appspot.com/むれる.jpg"
           );
           getDownloadURL(gsReference)
           .then((url) => {
@@ -44,7 +47,7 @@ export default function Otama() {
         <>
             わう♪
             <a href="https://www.youtube.com/watch?v=fjVenA8boRo">
-            <img src={Image} alt="おたまホース" onmouseover="over()" onmouseleave="leave()"/>
+            <img src={Image} alt="おたまホース" onMouseOver={over} onMouseLeave={leave}/>
             </a>
         </>
     )

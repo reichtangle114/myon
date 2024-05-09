@@ -1,7 +1,9 @@
 'use client'
 import { useState, useEffect} from "react"
-import { ref , getDownloadURL } from "firebase/storage";
+import { ref , getDownloadURL } from "firebase/storage"
 import { firestorage } from "../firebase_criant.js"
+import Header from "../head.jsx"
+import Post from "../components/uplorder.jsx"
 
 export default function Mainpage() {
   let [Image, setImage] = useState();
@@ -14,12 +16,13 @@ export default function Mainpage() {
     .then((url) => {
       setImage(url);
     })
-    .catch((err) => console.log(err));   
-    console.log("繰り返し？")  
-}, []);
+    .catch((err) => console.log(err));    
+  }, []);
 
   return (
       <>
+      <Header />
+      <Post></Post>
         左：おたま（ぬいぐるみ）
         <br></br>
         アニーのトゥモローをよく歌う。たまらぶゆー。
