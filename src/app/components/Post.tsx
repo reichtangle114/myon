@@ -84,6 +84,7 @@ const Post: React.FC = () => {
         <br />
         <input
           type="text"
+          style={{ color: "black" }}
           value={text}
           onChange={(e) => {
             setText(e.target.value);
