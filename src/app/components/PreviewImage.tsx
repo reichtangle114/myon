@@ -33,6 +33,8 @@ const PreviewImage: React.FC<{ image: Image }> = ({ image }) => {
         height: 400,
       }}
     >
+      {image.timestamp != undefined &&
+      <>
       <p>
         <img
           src={prevUrl}
@@ -42,6 +44,8 @@ const PreviewImage: React.FC<{ image: Image }> = ({ image }) => {
       </p>
       <p>{image.text}</p>
       <p>{formatTimestamp(image.timestamp.toDate())}</p>
+      </>
+      }
     </div>
   );
 };
