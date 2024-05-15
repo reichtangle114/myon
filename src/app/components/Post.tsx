@@ -4,6 +4,8 @@ import { ref, uploadBytes } from "firebase/storage";
 import { validateImage } from "image-validator";
 import db,{ firestorage } from "../firebase_criant.js";
 import { addDoc, collection } from "firebase/firestore";
+import styled from '@emotion/styled';
+import { Button,  Paper, TextField } from '@mui/material';
 
 const Post: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -79,12 +81,11 @@ const Post: React.FC = () => {
 
   return (
     <div>
+      <StyledPaper className='form'>
       <form>
         <input type="file" onChange={handleImageSelect} />
         <br />
-        <input
-          type="text"
-          style={{ color: "black" }}
+        <TextField label="画像説明"  className="text"
           value={text}
           onChange={(e) => {
             setText(e.target.value);
@@ -92,12 +93,12 @@ const Post: React.FC = () => {
           }}
         />
         <br />
-        <a
-          style={{ cursor: "pointer", border: "1px solid gray" }}
+        <Button
+          className='btn'
           onClick={uploadImage}
         >
           upload
-        </a>
+        </Button>
       </form>
       <p style={{ color: "red" }}>{errorMsg && errorMsg}</p>
       {imagePreview && (
@@ -111,8 +112,36 @@ const Post: React.FC = () => {
           alt="preview"
         />
       )}
+      </StyledPaper>
     </div>
   );
 };
 
+const StyledPaper = styled(Paper)`
+display: flex;
+justify-content: center;
+width: 960px;
+height: 540px;
+
+.form {
+  width: 60%;
+  margin: 3rem;
+  text-align: center;
+}
+
+.text {
+  width: 100%;
+  margin: 1rem 0;
+  background-color: powderblue;
+}
+
+.btn {
+  width: 60%;
+  color: white;
+  text-align: center;
+  margin: 1.5rem 0;
+  background-color: lightseagreen;
+}
+
+`;
 export default Post;

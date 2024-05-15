@@ -1,15 +1,18 @@
-
-
-import Link from 'next/link';
+import { AppBar, Toolbar, Typography } from '@material-ui/core'
 
  function Header() {
-     return( <header>
-             <h1>みょん</h1>
-             <menu>Menu：
-            <li><a href="../otama/page.jsx">おたま♪</a></li>
-            <li><a href="../main/page.jsx">画像</a></li>
-             </menu>
-       </header>
+     return( 
+      <AppBar position="static">
+            <Toolbar>
+                <Typography>めにゅーだみょん→</Typography>
+                &nbsp;
+                <a href="/otama">おたま♪</a>
+                &nbsp;
+                <a href="/main">おたち</a>
+                &nbsp;
+                <a href="/ichiran">いっぱい</a>
+            </Toolbar>
+        </AppBar>
      )
    }
 
