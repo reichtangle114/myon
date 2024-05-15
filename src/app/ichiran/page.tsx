@@ -14,6 +14,7 @@ const App: React.FC = () => {
     <div className="App">
       <Header />
       <Post />
+      <StyledPaper className='form'>
       <h3>投稿一覧</h3>
       <p style={{ color: "red" }}>{imagesError && imagesError}</p>
       <div className="container">
@@ -25,6 +26,7 @@ const App: React.FC = () => {
           ))}
         </div>
       </div>
+      </StyledPaper>
     </div>
   );
 };
