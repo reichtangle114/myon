@@ -3,6 +3,7 @@ import { useState} from "react"
 import { ref , uploadBytes } from "firebase/storage";
 import { validateImage } from "image-validator";
 import { firestorage } from "../firebase_criant.js"
+import { Button } from "flowbite-react";
 
 export default function Post() {
         const [file, setFile] = useState();
@@ -55,7 +56,7 @@ return (
     <div>
       <form onSubmit={uploadImage}>
         <input type="file" onChange={handleImageSelect} />
-        <button type="submit">アップロード</button>
+        <Button color="blue">アップロード</Button>
       </form>
     </div>
     </>

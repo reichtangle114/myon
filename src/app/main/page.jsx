@@ -35,7 +35,7 @@ export default function Mainpage() {
         <br></br>
         お立ちのお客様へのご案内が仕事。座りたい。
         <br></br>
-        <img src={Image} alt="おたまとおたち" />
+        <img src={Image} alt="おたまとおたち"  width="300" height="400"/>
       </>
   )
 }

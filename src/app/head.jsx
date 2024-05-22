@@ -1,18 +1,18 @@
-import { AppBar, Toolbar, Typography } from '@material-ui/core'
+import { Navbar } from "flowbite-react";
 
  function Header() {
      return( 
-      <AppBar position="static">
-            <Toolbar>
-                <Typography>めにゅーだみょん→</Typography>
-                &nbsp;
-                <a href="/otama">おたま♪</a>
-                &nbsp;
-                <a href="/main">おたち</a>
-                &nbsp;
-                <a href="/ichiran">いっぱい</a>
-            </Toolbar>
-        </AppBar>
+        <Navbar fluid rounded>
+        <Navbar.Brand>
+          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">めにゅーだみょん</span>
+        </Navbar.Brand>
+        <Navbar.Toggle />
+        <Navbar.Collapse>
+          <Navbar.Link href="/otama">おたま♪</Navbar.Link>
+          <Navbar.Link href="/main">おたち</Navbar.Link>
+          <Navbar.Link href="/ichiran">いっぱい</Navbar.Link>
+        </Navbar.Collapse>
+      </Navbar>
      )
    }
 
