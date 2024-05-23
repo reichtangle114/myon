@@ -93,10 +93,10 @@ const Post: React.FC = () => {
           }}
         />
         <br />
-        <Button
+        <Button outline
           onClick={uploadImage}
           size="lg"
-          gradientDuoTone="tealToLime"
+          color="blue"
         >
           upload
           <HiOutlineArrowRight className="ml-2 h-5 w-5" />
